@@ -1,4 +1,4 @@
-package com.superhan.dvdrentalspringbootbackend.payment.repository;
+package com.superhan.dvdrentalspringbootbackend.payment.repository.entity;
 
 import lombok.*;
 
@@ -15,7 +15,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "payment_id", nullable = false)
-    private Long id;
+    private Integer id;
 
 
 }

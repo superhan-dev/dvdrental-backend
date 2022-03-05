@@ -2,12 +2,11 @@ package com.superhan.dvdrentalspringbootbackend.rental.repository.entity;
 
 import com.superhan.dvdrentalspringbootbackend.customer.repository.entity.Customer;
 import com.superhan.dvdrentalspringbootbackend.inventory.repository.entity.Inventory;
-import com.superhan.dvdrentalspringbootbackend.payment.repository.Payment;
 import com.superhan.dvdrentalspringbootbackend.staff.repository.entity.Staff;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -20,29 +19,24 @@ public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "rental_id", nullable = false)
-    private Long id;
+    private Integer id;
 
-    private LocalDateTime rentalDate;
-    private Integer inventoryId;
-    private Integer customerId;
-    private LocalDateTime returnDate;
-    private Integer staffId;
-    private LocalDateTime lastUpdate;
+    @Column(name = "rental_date")
+    private LocalDate rentalDate;
 
-    @ManyToOne
+    @Column(name = "return_date")
+    private LocalDate returnDate;
+
+    @ManyToOne(targetEntity = Customer.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Inventory.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "inventory_id")
     private Inventory inventory;
 
-
-    @ManyToOne
+    @ManyToOne(targetEntity = Staff.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "staff_id")
     private Staff staff;
 
-    @ManyToOne
-    @JoinColumn(name = "payment_id")
-    private Payment payment;
 }

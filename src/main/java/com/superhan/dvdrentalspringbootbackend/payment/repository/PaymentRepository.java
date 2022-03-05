@@ -1,4 +1,7 @@
 package com.superhan.dvdrentalspringbootbackend.payment.repository;
 
-public interface PaymentRepository extends org.springframework.data.jpa.repository.JpaRepository<com.superhan.dvdrentalspringbootbackend.payment.repository.Payment, java.lang.Integer> {
+import com.superhan.dvdrentalspringbootbackend.payment.repository.entity.Payment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PaymentRepository extends JpaRepository<Payment, Integer> {
 }

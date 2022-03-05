@@ -1,4 +1,7 @@
-package com.superhan.dvdrentalspringbootbackend.address.repository.entity;
+package com.superhan.dvdrentalspringbootbackend.address.repository;
 
-public interface AddressRepository extends org.springframework.data.jpa.repository.JpaRepository<com.superhan.dvdrentalspringbootbackend.address.repository.entity.Address, java.lang.Long> {
+import com.superhan.dvdrentalspringbootbackend.address.repository.entity.Address;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AddressRepository extends JpaRepository<Address, Integer> {
 }
