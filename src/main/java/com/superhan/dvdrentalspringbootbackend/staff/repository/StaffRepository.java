@@ -1,0 +1,7 @@
+package com.superhan.dvdrentalspringbootbackend.staff.repository;
+
+import com.superhan.dvdrentalspringbootbackend.staff.repository.entity.Staff;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface StaffRepository extends JpaRepository<Staff, Long> {
+}
