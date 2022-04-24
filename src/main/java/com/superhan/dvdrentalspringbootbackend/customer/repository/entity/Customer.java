@@ -29,5 +29,6 @@ public class Customer {
 
     @ManyToOne(targetEntity = Address.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
+
     private Address address;
 }
