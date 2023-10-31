@@ -19,11 +19,11 @@ public class Inventory {
     @Column(name = "inventory_id", nullable = false)
     private Integer id;
 
-    @ManyToOne(targetEntity = Store.class)
+    @ManyToOne(targetEntity = Store.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @ManyToOne(targetEntity = Film.class)
+    @ManyToOne(targetEntity = Film.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "film_id")
     private Film film;
 }

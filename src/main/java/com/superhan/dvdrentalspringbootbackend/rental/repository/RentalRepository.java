@@ -8,6 +8,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RentalRepository extends JpaRepository<Rental, Integer> {
 
-    // @EntityGraph(attributePaths = { "inventory", "staff" })
+    @EntityGraph(attributePaths = {
+            "customer",
+            "customer.address",
+            "customer.store",
+            "customer.store.address",
+            "customer.store.managerStaff",
+            "inventory",
+            "inventory.store",
+            "inventory.store.address",
+            "inventory.store.managerStaff",
+            "inventory.film",
+            "staff" })
     Page<Rental> findAll(Pageable pageable);
 }
