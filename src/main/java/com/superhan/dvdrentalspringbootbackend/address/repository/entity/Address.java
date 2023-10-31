@@ -1,12 +1,10 @@
 package com.superhan.dvdrentalspringbootbackend.address.repository.entity;
 
-import com.superhan.dvdrentalspringbootbackend.customer.repository.entity.Customer;
-import com.superhan.dvdrentalspringbootbackend.staff.repository.entity.Staff;
-import com.superhan.dvdrentalspringbootbackend.store.repository.entity.Store;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+
+import org.hibernate.annotations.BatchSize;
 
 @Entity
 @Getter
@@ -32,7 +30,7 @@ public class Address {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = City.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
     private City city;
 

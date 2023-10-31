@@ -1,6 +1,6 @@
 package com.superhan.dvdrentalspringbootbackend.rental.service;
 
-import com.superhan.dvdrentalspringbootbackend.rental.controller.dto.RentalDto;
+import com.superhan.dvdrentalspringbootbackend.rental.dto.RentalDto;
 import com.superhan.dvdrentalspringbootbackend.rental.model.RentalMapper;
 import com.superhan.dvdrentalspringbootbackend.rental.repository.RentalRepository;
 import com.superhan.dvdrentalspringbootbackend.rental.repository.entity.Rental;

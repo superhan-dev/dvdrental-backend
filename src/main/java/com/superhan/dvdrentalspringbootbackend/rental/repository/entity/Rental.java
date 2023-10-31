@@ -1,6 +1,5 @@
 package com.superhan.dvdrentalspringbootbackend.rental.repository.entity;
 
-import com.superhan.dvdrentalspringbootbackend.customer.repository.entity.Customer;
 import com.superhan.dvdrentalspringbootbackend.inventory.repository.entity.Inventory;
 import com.superhan.dvdrentalspringbootbackend.staff.repository.entity.Staff;
 import lombok.*;
@@ -27,9 +26,9 @@ public class Rental {
     @Column(name = "return_date")
     private LocalDate returnDate;
 
-    @ManyToOne(targetEntity = Customer.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    // @ManyToOne(targetEntity = Customer.class, fetch = FetchType.LAZY)
+    // @JoinColumn(name = "customer_id")
+    // private Customer customer;
 
     @ManyToOne(targetEntity = Inventory.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "inventory_id")

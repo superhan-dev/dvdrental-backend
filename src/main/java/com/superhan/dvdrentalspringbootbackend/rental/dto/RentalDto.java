@@ -1,4 +1,4 @@
-package com.superhan.dvdrentalspringbootbackend.rental.controller.dto;
+package com.superhan.dvdrentalspringbootbackend.rental.dto;
 
 import com.superhan.dvdrentalspringbootbackend.customer.repository.entity.Customer;
 import com.superhan.dvdrentalspringbootbackend.inventory.repository.entity.Inventory;

@@ -6,6 +6,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.BatchSize;
+
 @Entity
 @Getter
 @Setter
@@ -19,11 +21,11 @@ public class Store {
     @Column(name = "store_id", nullable = false)
     private Integer id;
 
-    @ManyToOne()
+    @ManyToOne(targetEntity = Address.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Staff.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_staff_id")
     private Staff managerStaff;
 }

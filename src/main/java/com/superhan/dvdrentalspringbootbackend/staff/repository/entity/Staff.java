@@ -1,7 +1,5 @@
 package com.superhan.dvdrentalspringbootbackend.staff.repository.entity;
 
-import com.superhan.dvdrentalspringbootbackend.address.repository.entity.Address;
-import com.superhan.dvdrentalspringbootbackend.store.repository.entity.Store;
 import lombok.*;
 
 import javax.persistence.*;

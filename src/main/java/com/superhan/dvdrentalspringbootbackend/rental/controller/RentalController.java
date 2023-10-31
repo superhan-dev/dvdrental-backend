@@ -1,6 +1,6 @@
 package com.superhan.dvdrentalspringbootbackend.rental.controller;
 
-import com.superhan.dvdrentalspringbootbackend.rental.controller.dto.RentalDto;
+import com.superhan.dvdrentalspringbootbackend.rental.dto.RentalDto;
 import com.superhan.dvdrentalspringbootbackend.rental.service.RentalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,7 +16,7 @@ public class RentalController {
     private final RentalService rentalService;
 
     @GetMapping(value = "/list")
-    public Page<RentalDto.Detail> getRentalList(Pageable pageable){
+    public Page<RentalDto.Detail> getRentalList(Pageable pageable) {
         return rentalService.getRentalList(pageable);
     }
 }

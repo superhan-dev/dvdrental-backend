@@ -1,6 +1,6 @@
 package com.superhan.dvdrentalspringbootbackend.rental.model;
 
-import com.superhan.dvdrentalspringbootbackend.rental.controller.dto.RentalDto;
+import com.superhan.dvdrentalspringbootbackend.rental.dto.RentalDto;
 import com.superhan.dvdrentalspringbootbackend.rental.repository.entity.Rental;
 
 public class RentalMapper {
@@ -10,7 +10,7 @@ public class RentalMapper {
                 .id(rental.getId())
                 .rentalDate(rental.getRentalDate())
                 .returnDate(rental.getReturnDate())
-                .customer(rental.getCustomer())
+                // .customer(rental.getCustomer())
                 .inventory(rental.getInventory())
                 .staff(rental.getStaff())
                 .build();

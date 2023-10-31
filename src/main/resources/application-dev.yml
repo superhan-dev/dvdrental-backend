@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://127.0.0.1:5432/dvdrental
-    username: postgres
-    password: root
+    username: shhan
+    password: 1234
 
   jpa:
     open-in-view: true
