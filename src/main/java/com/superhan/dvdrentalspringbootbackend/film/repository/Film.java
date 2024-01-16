@@ -1,6 +1,5 @@
 package com.superhan.dvdrentalspringbootbackend.film.repository;
 
-import com.superhan.dvdrentalspringbootbackend.inventory.repository.entity.Inventory;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 

@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.BatchSize;
-
 import com.superhan.dvdrentalspringbootbackend.address.repository.entity.Address;
 import com.superhan.dvdrentalspringbootbackend.store.repository.entity.Store;
 

@@ -6,8 +6,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.BatchSize;
-
 @Entity
 @Getter
 @Setter
