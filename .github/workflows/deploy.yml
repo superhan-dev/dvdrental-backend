@@ -62,7 +62,7 @@ jobs:
         run: ./gradlew build
 
       - name: Login to docker hub
-        run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secret.DOCKER_HUB_PASSWORD}}
+        run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Build Docker image
         run: docker build -t dvdrental-backend:$NEW_TAG .
       - name: Publish image to docker hub
