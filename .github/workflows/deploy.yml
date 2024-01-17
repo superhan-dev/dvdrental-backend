@@ -58,7 +58,8 @@ jobs:
       - name: Excetute Gradle build
         run: ./gradlew build
       - name: Login to docker hub
-        run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+        run: |
+          echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
       - name: Build Docker image
         run: docker build -t dvdrental-backend:latest
       - name: Publish image to docker hub
