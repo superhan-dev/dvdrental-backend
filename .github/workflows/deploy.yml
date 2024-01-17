@@ -70,13 +70,15 @@ jobs:
           docker push awesomehan/dvdrental-backend:latest
           # docker push awesomehan/dvdrental-backend:$NEW_TAG
 
-  # deploy:
-  #   needs: build
-  #   runs-on: [ip-172-31-35-33]
-  #   steps:
-  #     - name: Pull Image from docker hub
-  #       run: docker pull awesomehan/dvdrental-backend:latest
-  #     - name: Remove docker previous image
-  #       run: docker rm -f dvdrental-backend:$PREVIOUS_TAG
-  #     - name: Run docker container
-  #       run: docker run -d -p 8080:8080 --name dvdrental-backend awesomehan/dvdtental-backend:latest
+  deploy:
+    needs: build
+    runs-on: [ip-172-31-35-33]
+    steps:
+      - name: Stop current process
+        run: docker stop dvdrental-backend
+      - name: Remove docker previous image
+        run: docker rmi -f awesomehan/dvdrental-backend:latest
+      - name: Pull Image from docker hub
+        run: docker pull awesomehan/dvdrental-backend:latest
+      - name: Run docker container
+        run: docker run -d -p 8080:8080 --name dvdrental-backend awesomehan/dvdrental-backend:latest
