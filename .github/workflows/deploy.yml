@@ -64,7 +64,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       - name: Build Docker image
-        run: docker build -t dvdrental-backend:latest .
+        run: docker build -t awesomehan/dvdrental-backend:latest .
       - name: Publish image to docker hub
         run:
           docker push awesomehan/dvdrental-backend:latest
