@@ -23,31 +23,31 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Generate Git Tag
-        id: generate_tag
-        run: |
-          VERSION_PREFIX="v"
-          VERSION_MAJOR_MINOR="1.0"
-          VERSION_PATH=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR_MINOR}.*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+$')
+      # - name: Generate Git Tag
+      #   id: generate_tag
+      #   run: |
+      #     VERSION_PREFIX="v"
+      #     VERSION_MAJOR_MINOR="1.0"
+      #     VERSION_PATH=$(git tag --list "${VERSION_PREFIX}${VERSION_MAJOR_MINOR}.*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+$')
 
-          if [ -z "$VERSION_PATCH" ]; then
-          VERSION_PATCH=0
-          PREVIOUS_VERSION_PATCH=0
-          else
-            PREVIOUS_VERSION_PATCH=VERSION_PATCH
-            VERSION_PATCH=$((VERSION_PATCH + 1))
+      #     if [ -z "$VERSION_PATCH" ]; then
+      #     VERSION_PATCH=0
+      #     PREVIOUS_VERSION_PATCH=0
+      #     else
+      #       PREVIOUS_VERSION_PATCH=VERSION_PATCH
+      #       VERSION_PATCH=$((VERSION_PATCH + 1))
 
-          fi
-          NEW_TAG="${VERSION_PREFIX}${VERSION_MAJOR_MINOR}.${VERSION_PATCH}"
-          PREVIOUS_TAG="${VERSION_PREFIX}${VERSION_MAJOR_MINOR}.${PREVIOUS_VERSION_PATCH}"
-          echo "Generated new tag: $NEW_TAG"
-          echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
-      - name: Push Git Tag
-        run: |
-          git config user.name "superhan-dev"
-          git config user.email "superhan.dev@gmail.com"
-          git tag $NEW_TAG
-          git push origin $NEW_TAG
+      #     fi
+      #     NEW_TAG="${VERSION_PREFIX}${VERSION_MAJOR_MINOR}.${VERSION_PATCH}"
+      #     PREVIOUS_TAG="${VERSION_PREFIX}${VERSION_MAJOR_MINOR}.${PREVIOUS_VERSION_PATCH}"
+      #     echo "Generated new tag: $NEW_TAG"
+      #     echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
+      # - name: Push Git Tag
+      #   run: |
+      #     git config user.name "superhan-dev"
+      #     git config user.email "superhan.dev@gmail.com"
+      #     git tag $NEW_TAG
+      #     git push origin $NEW_TAG
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -60,11 +60,11 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Build Docker image
-        run: docker build -t dvdrental-backend:$NEW_TAG .
+        run: docker build -t dvdrental-backend:latest
       - name: Publish image to docker hub
-        run: |
-          docker push awesomehan/dvdrental-backend:$NEW_TAG 
+        run:
           docker push awesomehan/dvdrental-backend:latest
+          # docker push awesomehan/dvdrental-backend:$NEW_TAG
 
   # deploy:
   #   needs: build
