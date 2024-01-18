@@ -13,7 +13,6 @@ name: Dvdrental Service CI/CD
 
 on:
   push:
-    # Sequence of patterns matched against refs/heads
     tags:
       - "*"
 
