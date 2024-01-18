@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -44,12 +44,21 @@ jobs:
           docker push awesomehan/dvdrental-backend:latest
           # docker push awesomehan/dvdrental-backend:$NEW_TAG
 
-  cd:
-    needs: ci
+  CD:
+    needs: CI
     runs-on: self-hosted
     steps:
       - name: Stop current process
-        run: docker stop dvdrental-backend
+        run: |
+          DOCKER_PROCESS_NAME="dvdrental-backend"
+          DOCKER_PROCESS_COUNT=$(docker ps --filter "name=$DOCKER_PROCESS_NAME" -q | wc -l)
+
+          if [ $DOCKER_PROCESS_COUNT -gt 0 ]; then
+              docker stop $(docker ps --filter "name=$DOCKER_PROCESS_NAME" -q)
+              echo "stop dvdrental process."
+          else
+              echo "not found the docker process"
+          fi
       - name: Remove docker previous image
         run: docker rm -f dvdrental-backend || true
       - name: Pull Image from docker hub
