@@ -7,14 +7,14 @@
 
 name: Dvdrental Service CI/CD
 
-# on:
-#   push:
-#     branches: ["main"]
-
 on:
   push:
-    tags:
-      - "*"
+    branches: ["main"]
+
+# on:
+#   push:
+#     tags:
+#       - "*"
 
 permissions:
   contents: read
