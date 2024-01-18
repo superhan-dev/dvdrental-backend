@@ -63,7 +63,7 @@
 #         run: docker pull awesomehan/dvdrental-backend:latest
 #       - name: Run docker container
 #         run: docker run -d -p 8080:8080 --name dvdrental-backend awesomehan/dvdrental-backend:latest
-name: Tag test
+name: Github Action test
 
 on:
   workflow_dispatch:
