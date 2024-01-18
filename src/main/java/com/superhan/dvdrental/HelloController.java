@@ -8,7 +8,7 @@ public class HelloController {
 
 	@GetMapping("/")
 	public String index() {
-		return "Testing The Github Actions! It works!!";
+		return "Testing The Github Actions!!!";
 	}
 
 }
